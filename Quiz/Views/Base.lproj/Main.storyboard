@@ -217,21 +217,33 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2MD-mZ-Wdq">
                                 <rect key="frame" x="184" y="373" width="46" height="144"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBP-02-5RC">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBP-02-5RC">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerClicked:" destination="pnu-A3-oa0" eventType="touchUpInside" id="fpC-Ir-Rpm"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-1S-UMX">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-1S-UMX">
                                         <rect key="frame" x="0.0" y="38" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerClicked:" destination="pnu-A3-oa0" eventType="touchUpInside" id="blX-8y-YvE"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKy-7t-Sud">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKy-7t-Sud">
                                         <rect key="frame" x="0.0" y="76" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerClicked:" destination="pnu-A3-oa0" eventType="touchUpInside" id="mi4-D0-lyQ"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20i-8M-zlr">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20i-8M-zlr">
                                         <rect key="frame" x="0.0" y="114" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerClicked:" destination="pnu-A3-oa0" eventType="touchUpInside" id="6I6-Al-mY3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -265,6 +277,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="multipleStackView" destination="c7g-9g-lhr" id="9Oq-7q-mKj"/>
+                        <outlet property="progressBar" destination="KVs-5C-yeT" id="ZzC-ha-yIe"/>
+                        <outlet property="questionTextLabel" destination="M80-4J-0oN" id="TYt-8y-hr7"/>
+                        <outlet property="rangeStackView" destination="uyA-0s-x5W" id="ses-4F-KnL"/>
+                        <outlet property="singleFirstAnswerButton" destination="QBP-02-5RC" id="sht-ga-nvn"/>
+                        <outlet property="singleFourthAnswerButton" destination="20i-8M-zlr" id="j9h-qg-HvB"/>
+                        <outlet property="singleSecondAnswerButton" destination="KMP-1S-UMX" id="hBM-yD-kiT"/>
+                        <outlet property="singleStackView" destination="2MD-mZ-Wdq" id="lr4-Mf-1Ee"/>
+                        <outlet property="singleThirdAnswerButton" destination="kKy-7t-Sud" id="wxo-Sz-iX0"/>
                         <segue destination="zlf-wF-0eA" kind="show" id="WH8-5N-DHi"/>
                     </connections>
                 </viewController>
