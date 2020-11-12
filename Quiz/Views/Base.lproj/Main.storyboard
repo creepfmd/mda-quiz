@@ -164,7 +164,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxL-ZZ-OHp">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uxL-ZZ-OHp">
                                                 <rect key="frame" x="325" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -178,7 +178,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEw-QS-Hap">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hEw-QS-Hap">
                                                 <rect key="frame" x="325" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -192,7 +192,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1B-MC-9El">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="H1B-MC-9El">
                                                 <rect key="frame" x="325" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -206,7 +206,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yj-HT-LeF">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8yj-HT-LeF">
                                                 <rect key="frame" x="325" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
@@ -275,13 +275,7 @@
                             <constraint firstItem="c7g-9g-lhr" firstAttribute="centerX" secondItem="nNW-75-RuL" secondAttribute="centerX" id="uCG-aP-sN0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4Va-jJ-2Zz">
-                        <barButtonItem key="rightBarButtonItem" title="DELETE ME" id="c44-tJ-j8A">
-                            <connections>
-                                <segue destination="zlf-wF-0eA" kind="show" id="HcC-bq-YHQ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="4Va-jJ-2Zz"/>
                     <connections>
                         <outlet property="multipleStackView" destination="c7g-9g-lhr" id="9Oq-7q-mKj"/>
                         <outlet property="progressBar" destination="KVs-5C-yeT" id="ZzC-ha-yIe"/>
@@ -303,7 +297,7 @@
                         <outletCollection property="multipleSwitches" destination="hEw-QS-Hap" collectionClass="NSMutableArray" id="qu7-MS-57D"/>
                         <outletCollection property="multipleSwitches" destination="H1B-MC-9El" collectionClass="NSMutableArray" id="yX9-qR-Uh0"/>
                         <outletCollection property="multipleSwitches" destination="8yj-HT-LeF" collectionClass="NSMutableArray" id="877-mI-bfe"/>
-                        <segue destination="zlf-wF-0eA" kind="show" identifier="ShowResults" id="WH8-5N-DHi"/>
+                        <segue destination="zlf-wF-0eA" kind="show" identifier="ShowResults" destinationCreationSelector="resultsSegue:" id="WH8-5N-DHi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDw-hn-EIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -358,9 +352,6 @@
             <point key="canvasLocation" x="2540" y="99"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="WH8-5N-DHi"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Batman" width="758" height="426"/>
         <image name="CaptainAmerica" width="758" height="426"/>

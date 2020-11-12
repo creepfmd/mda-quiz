@@ -8,6 +8,17 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    
+    let answers: [Answer]
+    
+    init?(coder: NSCoder, _ answers: [Answer]) {
+        self.answers = answers
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

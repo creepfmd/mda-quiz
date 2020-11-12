@@ -24,12 +24,17 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var progressBar: UIProgressView!
 
+    private var currentQuestionAnswers: [Answer] {
+        currentQuestion.answers
+    }
+    private var currentQuestion: Question {
+        Question.all[questionIndex]
+    }
     var questionIndex = 0
     var userAnswers = [Answer]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         updateUI()
     }
     
@@ -40,13 +45,12 @@ class QuestionViewController: UIViewController {
         
         navigationItem.title = "Вопрос №\(questionIndex + 1)"
         
-        let question = Question.all[questionIndex]
         let totalProgress = Float(questionIndex) / Float(Question.all.count)
         
-        questionTextLabel.text = question.text
+        questionTextLabel.text = currentQuestion.text
         progressBar.setProgress(totalProgress, animated: true)
         
-        switch question.type {
+        switch currentQuestion.type {
         case .single:
             updateSingleStack()
         case .multiple:
@@ -57,61 +61,71 @@ class QuestionViewController: UIViewController {
     }
     
     func updateSingleStack() {
-        let answers = getCurrentQuestionAnswers()
         for (index, button) in singleButtons.enumerated() {
             button.setTitle(nil, for: [])
             button.tag = index
         }
-        for (button, answer) in zip(singleButtons, answers) {
+        for (button, answer) in zip(singleButtons, currentQuestionAnswers) {
             button.setTitle(answer.text, for: [])
         }
         singleStackView.isHidden = false
     }
     
     func updateMultipleStack() {
-        let answers = getCurrentQuestionAnswers()
-        for (index, label) in multipleLabels.enumerated() {
+        for label in multipleLabels {
             label.text = ""
-            // TODO: set tags for switches
         }
-        for (label, answer) in zip(multipleLabels, answers) {
+        for (label, answer) in zip(multipleLabels, currentQuestionAnswers) {
             label.text = answer.text
         }
         multipleStackView.isHidden = false
     }
     
     func updateRangeStack() {
-        let answers = getCurrentQuestionAnswers()
-        rangeLeftLabel.text = answers.first?.text
-        rangeRightLabel.text = answers.last?.text
+        rangeLeftLabel.text = currentQuestionAnswers.first?.text
+        rangeRightLabel.text = currentQuestionAnswers.last?.text
+
+        rangeSlider.maximumValue = Float(currentQuestionAnswers.count - 1)
+        rangeSlider.value = rangeSlider.maximumValue / 2
+
         rangeStackView.isHidden = false
     }
     
     func nextQuestion() {
-        print(userAnswers)
-        questionIndex = (questionIndex + 1) % Question.all.count
-        updateUI()
+        questionIndex += 1
+        if questionIndex >= Question.all.count {
+            performSegue(withIdentifier: "ShowResults", sender: nil)
+        } else {
+            updateUI()
+        }
     }
-    
-    func getCurrentQuestionAnswers() -> [Answer] {
-        return Question.all[questionIndex].answers
-    }
+
     
     @IBAction func singleAnswerClicked(_ sender: UIButton) {
-        let answers = getCurrentQuestionAnswers()
         let index = sender.tag
-        guard index >= 0 && index < answers.count else {
+        guard index >= 0 && index < currentQuestionAnswers.count else {
             return
         }
-        userAnswers.append(answers[index])
+        userAnswers.append(currentQuestionAnswers[index])
         nextQuestion()
     }
     
     @IBAction func multipleAnswerClicked(_ sender: Any) {
+        for index in 0..<currentQuestionAnswers.count {
+            if multipleSwitches[index].isOn {
+                userAnswers.append(currentQuestionAnswers[index])
+            }
+        }
         nextQuestion()
     }
     
     @IBAction func rangeAnswerClicked(_ sender: Any) {
+        let index = Int(round(rangeSlider.value))
+        userAnswers.append(currentQuestionAnswers[index])
         nextQuestion()
+    }
+    
+    @IBSegueAction func resultsSegue(_ coder: NSCoder) -> ResultViewController? {
+        return ResultViewController.init(coder: coder, userAnswers)
     }
 }
