@@ -6,10 +6,23 @@
 //
 
 enum HeroType: String {
-    case Superman = "Superman"
-    case GreenLantern = "Green Lantern"
-    case Batman = "Batman"
-    case CaptainAmerica = "Captain America"
+    case Superman = "Супермэн"
+    case GreenLantern = "Зеленый Фонарь"
+    case Batman = "Бэтмэн"
+    case CaptainAmerica = "Капитан Америка"
+    
+    var image: String {
+        switch self {
+        case .Superman:
+            return "Superman"
+        case .GreenLantern:
+            return "GreenLantern"
+        case .Batman:
+            return "Batman"
+        case .CaptainAmerica:
+            return "CaptainAmerica"
+        }
+    }
     
     var definition: String {
         switch self {

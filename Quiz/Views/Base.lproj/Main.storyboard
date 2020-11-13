@@ -312,17 +312,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jnf-eb-kOY">
-                                <rect key="frame" x="20" y="376.5" width="374" height="89"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jnf-eb-kOY">
+                                <rect key="frame" x="20" y="314.5" width="374" height="213"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CaptainAmerica" translatesAutoresizingMaskIntoConstraints="NO" id="3mI-ka-NLd">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="bOV-k7-G60"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-sr-CaY">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="124" width="374" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T9-QJ-E0o">
-                                        <rect key="frame" x="0.0" y="60" width="374" height="29"/>
+                                        <rect key="frame" x="0.0" y="184" width="374" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -345,6 +351,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="heroDefinitionLabel" destination="2T9-QJ-E0o" id="1CL-VA-4kg"/>
+                        <outlet property="heroImage" destination="3mI-ka-NLd" id="kAG-5Q-2iN"/>
+                        <outlet property="heroTypeLabel" destination="zGD-sr-CaY" id="pEf-S5-UcX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKy-0J-Snc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="7YO-RP-36k" userLabel="Exit" sceneMemberID="exit"/>
