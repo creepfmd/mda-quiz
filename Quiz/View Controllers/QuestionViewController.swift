@@ -113,7 +113,6 @@ class QuestionViewController: UIViewController {
             updateUI()
         }
     }
-
     
     @IBAction func singleAnswerClicked(_ sender: UIButton) {
         let index = sender.tag
