@@ -22,6 +22,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var rangeLeftLabel: UILabel!
     @IBOutlet weak var rangeRightLabel: UILabel!
     
+    @IBOutlet weak var segmentedStackView: UIStackView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     @IBOutlet weak var progressBar: UIProgressView!
 
     private var currentQuestionAnswers: [Answer] {
@@ -39,8 +42,8 @@ class QuestionViewController: UIViewController {
     }
     
     func updateUI() {
-        for stackView in [singleStackView, multipleStackView, rangeStackView] {
-            stackView?.isHidden = true
+        for responseView in [singleStackView, multipleStackView, rangeStackView, segmentedStackView] {
+            responseView?.isHidden = true
         }
         
         navigationItem.title = "Вопрос №\(questionIndex + 1)"
@@ -57,6 +60,8 @@ class QuestionViewController: UIViewController {
             updateMultipleStack()
         case .range:
             updateRangeStack()
+        case .segmented:
+            updateSegmented()
         }
     }
     
@@ -91,6 +96,15 @@ class QuestionViewController: UIViewController {
         rangeStackView.isHidden = false
     }
     
+    func updateSegmented() {
+        segmentedControl.removeAllSegments()
+        for (index, answer) in currentQuestionAnswers.enumerated() {
+            segmentedControl.insertSegment(withTitle: answer.text, at: index, animated: false)
+        }
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedStackView.isHidden = false
+    }
+    
     func nextQuestion() {
         questionIndex += 1
         if questionIndex >= Question.all.count {
@@ -110,7 +124,7 @@ class QuestionViewController: UIViewController {
         nextQuestion()
     }
     
-    @IBAction func multipleAnswerClicked(_ sender: Any) {
+    @IBAction func multipleAnswerClicked(_ sender: UIButton) {
         for index in 0..<currentQuestionAnswers.count {
             if multipleSwitches[index].isOn {
                 userAnswers.append(currentQuestionAnswers[index])
@@ -119,8 +133,14 @@ class QuestionViewController: UIViewController {
         nextQuestion()
     }
     
-    @IBAction func rangeAnswerClicked(_ sender: Any) {
+    @IBAction func rangeAnswerClicked(_ sender: UIButton) {
         let index = Int(round(rangeSlider.value))
+        userAnswers.append(currentQuestionAnswers[index])
+        nextQuestion()
+    }
+    
+    @IBAction func segmentedAnswerClicked(_ sender: UIButton) {
+        let index = segmentedControl.selectedSegmentIndex
         userAnswers.append(currentQuestionAnswers[index])
         nextQuestion()
     }

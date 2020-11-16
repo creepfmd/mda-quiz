@@ -11,7 +11,7 @@ struct Question {
     let answers: [Answer]
     
     static let all: [Question] = [
-        Question(text: "Какой цвет ваш любимый", type: .single, answers: [
+        Question(text: "Какой цвет ваш любимый?", type: .single, answers: [
             Answer(text: "Зеленый", percentage: [
                 .Batman: 5,
                 .CaptainAmerica: 20,
@@ -37,7 +37,33 @@ struct Question {
                 .Superman: 20
             ]),
         ]),
-        Question(text: "Каким оружием владеете", type: .multiple, answers: [
+        Question(text: "Что любите есть?", type: .segmented, answers: [
+            Answer(text: "Плазму", percentage: [
+                .Batman: 5,
+                .CaptainAmerica: 20,
+                .GreenLantern: 70,
+                .Superman: 5
+            ]),
+            Answer(text: "Мясо", percentage: [
+                .Batman: 5,
+                .CaptainAmerica: 70,
+                .GreenLantern: 20,
+                .Superman: 5
+            ]),
+            Answer(text: "Рыбу", percentage: [
+                .Batman: 70,
+                .CaptainAmerica: 5,
+                .GreenLantern: 5,
+                .Superman: 20
+            ]),
+            Answer(text: "Овощи", percentage: [
+                .Batman: 20,
+                .CaptainAmerica: 5,
+                .GreenLantern: 5,
+                .Superman: 70
+            ]),
+        ]),
+        Question(text: "Каким оружием владеете?", type: .multiple, answers: [
             Answer(text: "Каратэ", percentage: [
                 .Batman: 5,
                 .CaptainAmerica: 20,
@@ -63,7 +89,7 @@ struct Question {
                 .Superman: 70
             ]),
         ]),
-        Question(text: "Много ли у вас денег", type: .range, answers: [
+        Question(text: "Много ли у вас денег?", type: .range, answers: [
             Answer(text: "Ни копейки", percentage: [
                 .Batman: 20,
                 .CaptainAmerica: 5,
