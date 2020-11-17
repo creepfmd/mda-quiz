@@ -41,7 +41,7 @@ class ResultViewController: UIViewController {
     }
     
     func updateUI(with answer: HeroType) {
-        heroImage.image = UIImage(named: answer.image)
+        heroImage.image = answer.image
         heroTypeLabel.text = "Вы - это \(answer.rawValue)"
         heroDefinitionLabel.text = answer.definition
     }
